@@ -1,0 +1,18 @@
+# This will use and existing github branch to get some data from the full story api
+var xhr = new XMLHttpRequest();
+ xhr.open("GET", "https://www.fullstory.com/api/v1/sessions?email=" + encodeURI("john@doe.com"), true);
+ xhr.setRequestHeader('Content-Type', "application/json");
+ xhr.setRequestHeader('Authorization', "Basic " + "YOUR_API_TOKEN_FROM_SETTINGS_PAGE");
+ xhr.withCredentials = true
+
+git submodule add https://github.com/KLondon18/tap-fullstory
+#update content to your repository
+git submodule update --init --recursive
+# No idea what I'm doing here but it seems right!  Get email address of unique user
+api/v1/sessions/?email=john@doe.com&limit=20
+# Post the reuqest just gotten
+# POST Request for email addresses
+{
+ limit: 20,
+ email: john@doe.com
+}
